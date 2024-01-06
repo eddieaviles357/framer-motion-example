@@ -13,8 +13,8 @@ stagger(2.1, { from: 2, startDelay: 0.3 }); */
    stagger(0.1, { from: "center" })
    stagger(2.1, { from: 'last', startDelay: 0.3 });
    stagger(2.1, { from: 'last', startDelay: 0.3, ease: [.32, .23, .4, .9] }); */
-const staggerDiv = stagger(0.1, { from: 'last', startDelay: 0.3, ease: "easeOut" });
-const staggerHeader = stagger(0.1, { startDelay: 0.3 });
+const staggerDiv = stagger(0.1, { from: 'first', startDelay: 0.8, ease: "easeOut" });
+const staggerHeader = stagger(0.1, { startDelay: 0.8 });
 
 const boxVariant = {
   visible: {
@@ -56,12 +56,12 @@ const useMenuAnimation = (inView) => {
       ? {
         opacity: 1,
         scale: 1,
-        background: 'pink'
+        background: 'green'
       }
       : {
-        opacity: 0,
-        scale: 0.3,
-        background: 'salmon'
+        opacity: 1,
+        scale: 0.8,
+        background: 'white'
       }, {
       duration: 0.2,
       delay: inView ? staggerHeader : 0
@@ -78,12 +78,12 @@ const useMenuAnimation = (inView) => {
       }
       // will show first since there is no delay when inView is false
       : {
-        opacity: 0,
-        scale: 0.3,
-        filter: "blur(20px)",
-        background: 'red'
+        opacity: 0.8,
+        scale: 1,
+        filter: "blur(1px)",
+        background: 'gray'
       }, {
-      duration: 1.2,
+      duration: 0.2,
       delay: inView ? staggerDiv : 0
     });
   }, [inView, animate]);
